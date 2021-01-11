@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BlogMapper">
+
+    <insert id="insertData" parameterType="com.engadori.blog.dto.BlogDTO">
+    INSERT INTO BLOG_TABLE(
+        USER_ID,
+        TITLE,
+        CONTENTS
+    ) VALUES (
+        #{userId},
+        #{title},
+        #{contents}
+    )
+    </insert>
+
+    <delete id="deleteData" parameterType="com.engadori.blog.DTO.BlogDTO">
+    DELETE FROM BLOG_TABLE WHERE POST_IDX = #{postIdx} AND USER_ID = #{userId}
+    </delete>
+</mapper>
