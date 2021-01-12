@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BlogMapper">
+
+    <select id="getData" parameterType="Integer" resultType="blogDTO.BlogDTO">
+        SELECT * FROM BLOG_TABLE WHERE POST_IDX = #{postIdx}
+    </select>
+
+    <select id="getList" resultType="blogDTO.BlogDTO">
+        SELECT * FROM BLOG_TABLE
+    </select>
+
+    <insert id="insertData" parameterType="blogDTO.BlogDTO">
+        INSERT INTO BLOG_TABLE(
+            USER_ID,
+            TITLE,
+            CONTENTS
+        ) VALUES (
+            #{userId},
+            #{title},
+            #{contents}
+        )
+    </insert>
+
+    <delete id="deleteData" parameterType="blogDTO.BlogDTO">
+        DELETE FROM BLOG_TABLE WHERE POST_IDX = #{postIdx}
+    </delete>
+
+</mapper>
